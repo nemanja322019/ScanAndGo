@@ -1,0 +1,27 @@
+item-list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .item-list {
+    max-height: 80vh; 
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .item-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .item-item:last-child {
+    border-bottom: none;
+  }
+  
+  .item-item:hover {
+    background-color: #f0f0f0;
+  }

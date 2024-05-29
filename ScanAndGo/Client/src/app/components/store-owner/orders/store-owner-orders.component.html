@@ -1,0 +1,60 @@
+<div class="store-selector">
+  <div class="tittle-wrapper">
+    <h2 class="title">Orders in</h2>
+  </div>
+  <div>
+    <select id="storeSelect" class="form-control" [(ngModel)]="selectedStore" (change)="onStoreChange()">
+      <option *ngFor="let store of stores" [value]="store.id">{{ store.name }}</option>
+    </select>
+  </div>
+</div>
+<div *ngIf="selectedStore != -1">
+  <form [formGroup]="filterForm">
+  <div class="row filter">
+      <div class="col-2"> 
+          <input type="text" class="form-control" id="email" placeholder="Enter email or session id" formControlName="filter"  /> 
+      </div>
+
+      <div class=" col-1">
+          <button class="btn btn-primary" (click)="onFilter()">FILTER</button>
+      </div>
+      <div class="col-4"></div>
+  </div>
+  </form>
+
+  <div id="ordersTable" >
+  <table class="table">
+    
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Buyer email</th>
+          <th scope="col">Status</th>
+          <th scope="col">Payment date</th>
+          <th scope="col">Session Id</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr  *ngFor="let item of orderList | paginate:{itemsPerPage:tableSize, currentPage: page, totalItems:count}; let i = index" >
+            <td>{{item.userEmail}}</td>
+            <td>{{item.paymentStatus}}</td>
+            <td>{{ item.paymentDate | date: 'mediumDate' }}</td>
+            <td class="fixed-width-td">{{item.sessionId}}</td>
+            <td><button class="btn btn-secondary" (click)="openItemsModal(item.id ?? -1)">Items</button></td>
+            <td><button class="btn btn-danger" (click)="onDelete(item.id ?? -1)">Delete</button>
+        </tr>
+      </tbody>
+    
+  </table>
+    <div>
+      <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)">
+
+      </pagination-controls>
+    </div>
+  </div>  
+</div>
+

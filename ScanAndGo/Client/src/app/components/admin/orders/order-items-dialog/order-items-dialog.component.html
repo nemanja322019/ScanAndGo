@@ -1,0 +1,10 @@
+<div class="item-list-container">
+  <div class="item-list">
+    <h3>Items</h3>
+    <div class="item-item" *ngFor="let item of items">
+      <div class="item-name">{{ item.productName }}</div>
+      <div class="item-count">Quantity: {{item.productCount}}</div>
+      <div class="item-count">Price per unit: {{item.productPrice}}&euro;</div>
+    </div>
+  </div>
+</div>

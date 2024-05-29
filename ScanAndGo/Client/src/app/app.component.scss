@@ -1,0 +1,21 @@
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  .nav-bar-wrapper {
+    height: 10vh;
+  }
+
+  .content-wrapper {
+    display: flex;
+    min-height: 90vh;
+  }
+  
+  .router-wrapper {
+    width: 100%; 
+    padding: 40px;
+  }
+  

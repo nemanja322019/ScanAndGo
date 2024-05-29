@@ -1,0 +1,32 @@
+<div class="modal-body" style="font-size: 2rem;">
+    <form (ngSubmit)="addOrUpdateUser()" #userForm="ngForm">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email" required #emailInput="ngModel">
+            <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+                Email is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required #nameInput="ngModel">
+            <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="text-danger">
+                Name is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="userType">User type:</label>
+            <select class="form-control" name="userType" [(ngModel)]="userType" required>
+                <option *ngFor="let userType of userTypes | keyvalue" [value]="userType.key">{{ userType.value }}</option>
+              </select>
+        </div>
+        <div class="form-group" *ngIf="userType == 2">
+            <label for="userType">Store:</label>
+            <select class="form-control" name="storeId" [(ngModel)]="storeId" required>
+                <option *ngFor="let store of stores; let i = index" [value]="store.id">{{ store.name }}</option>
+            </select>
+        </div>
+        <button style="font-size:2rem;padding:0 1rem" type="submit" class="btn btn-primary" [disabled]="userForm.invalid">{{ selectedUser ? 'Save' : 'Add' }}</button>
+    </form>
+</div>
+

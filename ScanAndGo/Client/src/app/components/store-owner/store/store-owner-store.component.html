@@ -1,0 +1,20 @@
+
+<h1>My Stores</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr *ngFor="let element of dataSource let i = index">
+      <td>{{ element.name }}</td>
+      <td>{{ element.address }}</td>
+      <td><button class="btn btn-secondary" (click)="openStoreSellersModal(element)">Sellers</button></td>
+    </tr>
+  </tbody>
+</table>
+
+

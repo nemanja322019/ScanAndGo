@@ -1,0 +1,31 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style=" width: 15vw;; min-height: 100%;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+    </a>
+  <div *ngIf="user?.userType == 0">
+    <div class="sidebar-item" *ngFor="let item of sidebarListAdmin;
+        let i=index" [ngClass]="{'sidebar-item-active':item.active,'sidebar-item':item.active}" (click)="this.changeRoute(i)" style="cursor: pointer;"
+        routerLink="/admin/{{item.link}}">
+        <h3 style="color: white;">{{item.label}}</h3>
+        <hr>
+    </div>
+  </div>
+
+  <div *ngIf="user?.userType == 2">
+    <div class="sidebar-item" *ngFor="let item of sidebarListSeller;
+        let i=index" [ngClass]="{'sidebar-item-active':item.active,'sidebar-item':item.active}" (click)="this.changeRoute(i)" style="cursor: pointer;"
+        routerLink="/seller/{{item.link}}">
+        <h3 style="color: white;">{{item.label}}</h3>
+        <hr>
+    </div>
+  </div>
+
+  <div *ngIf="user?.userType == 3">
+    <div class="sidebar-item" *ngFor="let item of sidebarListStoreOwner;
+        let i=index" [ngClass]="{'sidebar-item-active':item.active,'sidebar-item':item.active}" (click)="this.changeRoute(i)" style="cursor: pointer;"
+        routerLink="/store-owner/{{item.link}}">
+        <h3 style="color: white;">{{item.label}}</h3>
+        <hr>
+  </div>
+</div>
+</div>

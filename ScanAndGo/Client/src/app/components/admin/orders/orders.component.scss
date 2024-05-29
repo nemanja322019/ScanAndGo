@@ -1,0 +1,26 @@
+.filter-and-download {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.filter {
+    display: flex;
+}
+
+.filter-input {
+    margin-left: 20px;
+}
+
+.fixed-width-td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 10px; 
+}
+
+.download-button {
+    background-color: white;
+    border-color:black;
+    border-radius: 1ch;
+}

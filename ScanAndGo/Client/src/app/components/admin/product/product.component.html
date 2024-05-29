@@ -1,0 +1,53 @@
+<div class="add-button">
+  <h1>Products</h1>
+  <button type="button" class="btn btn-primary" (click)="openModal()">Add</button>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price (&euro;)</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Barcode</th>
+      <th scope="col">Store</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr *ngFor="let element of dataSource | paginate:{itemsPerPage:tableSize, currentPage: page, totalItems:count}; let i = index">
+      <td>{{ element.name }}</td>
+      <td>{{ element.price }}</td>
+      <td>{{element.weight}}</td>
+      <td>{{element.barcode}}</td>
+      <td>{{ element.store?.name }}</td>
+      <td><button class="btn btn-secondary" (click)="openEditModal(element)">Edit</button></td>
+      <td><button class="btn btn-danger" (click)="confirmDelete(element)">Delete</button>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <pagination-controls
+  previousLabel="Prev"
+  nextLabel="Next"
+  (pageChange)="onTableDataChange($event)">
+
+  </pagination-controls>
+</div>
+<ng-template #deleteConfirmationModal>
+  <div class="modal-header">
+    <h4 class="modal-title">Check delete</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Are you sure you want to delete product?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="deleteProduct()">Delete</button>
+    <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+  </div>
+</ng-template>
+
+

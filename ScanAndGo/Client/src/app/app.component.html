@@ -1,0 +1,13 @@
+<div class="app-wrapper">
+  <div class="nav-bar-wrapper" *ngIf="authService.getToken()">
+    <app-nav-bar></app-nav-bar>
+  </div>
+  <div class="content-wrapper">
+      <div class="app-side-bar" *ngIf="authService.getToken()">
+        <app-side-bar></app-side-bar>
+      </div>
+      <div class="router-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+  </div>
+</div>

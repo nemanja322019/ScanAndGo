@@ -1,0 +1,22 @@
+.fixed-width-td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 10px; 
+}
+
+.add-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.title {
+    display: flex;
+    margin-right: 20px;
+}
+
+.store-selector {
+    display: flex;
+    margin-bottom: 10px;
+}
+

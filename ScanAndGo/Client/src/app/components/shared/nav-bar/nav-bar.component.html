@@ -1,0 +1,9 @@
+<ng-container>
+    <nav class="nav-bar">
+        <h1 class="title">Scan&Go</h1>
+        <div>
+            <a (click)="router.navigate(['/change-password'])" class="logout">Change password</a>
+            <a (click)="authService.logout()" class="logout">Logout</a>
+        </div>
+    </nav>
+</ng-container>

@@ -1,0 +1,27 @@
+product-list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .product-list {
+    max-height: 80vh; 
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .product-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .product-item:last-child {
+    border-bottom: none;
+  }
+  
+  .product-item:hover {
+    background-color: #f0f0f0;
+  }
